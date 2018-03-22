@@ -8,6 +8,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Random;
 
 import android.app.Service;
 import android.content.Intent;
@@ -16,6 +17,11 @@ import android.os.IBinder;
 public class ConversationService extends Service {
 
 	private boolean isServiceDestoried=false;
+	private String[] greets={"Nice to meet u.",
+			"It's a beautiful weather!",
+			"Oh, U're so funny!",
+			"Ha~Ha~, U must kidding!",
+			"Yeah, I love u so much!"};
 	
 	@Override
 	public IBinder onBind(Intent arg0) {
@@ -61,7 +67,8 @@ public class ConversationService extends Service {
 					break;
 				}
 				
-				out.println("This is server port!");
+				int index=new Random().nextInt(greets.length);
+				out.println(greets[index]);
 			}
 			
 			in.close();

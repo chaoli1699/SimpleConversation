@@ -116,7 +116,7 @@ public class MainActivity extends Activity {
 	protected void onDestroy() {
 		// TODO Auto-generated method stub
 		socketHelper.disConnectToServer();
-		stopService(intentService);
+//		stopService(intentService);
 		super.onDestroy();
 	}
 
